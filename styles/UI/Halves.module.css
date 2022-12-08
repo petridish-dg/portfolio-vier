@@ -1,0 +1,30 @@
+.leftHalf::-webkit-scrollbar,
+.rightHalf::-webkit-scrollbar {
+  width: 8px;
+  border-left: 1px solid var(--color-text);
+}
+
+.leftHalf::-webkit-scrollbar-thumb,
+.rightHalf::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+}
+
+.leftHalf,
+.rightHalf {
+  height: 100%;
+  position: relative;
+
+  overflow-y: scroll;
+}
+
+.leftHalf {
+  border-right: 2px solid var(--color-text);
+}
+
+.rightHalf {
+  border-right: 1px solid var(--color-text);
+}
+
+.leftInnerContainer {
+  padding-top: 7rem;
+}

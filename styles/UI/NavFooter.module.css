@@ -1,0 +1,30 @@
+.navContainer,
+.footerContainer {
+  position: fixed;
+  width: calc(50% - var(--padding-global));
+  z-index: 50;
+
+  padding: var(--padding-global);
+
+  display: flex;
+  justify-content: space-between;
+
+  font-weight: 500;
+
+  text-rendering: optimizeLegibility;
+}
+
+.navContainer {
+  top: 0;
+  left: 0;
+}
+
+.footerContainer {
+  bottom: 0;
+  left: 0;
+}
+
+.navItem:last-child,
+.footerItem:last-child {
+  text-align: right;
+}
