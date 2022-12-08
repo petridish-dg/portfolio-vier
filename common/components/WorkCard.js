@@ -32,7 +32,12 @@ const WorkCard = ({ year, title, scope, link, image }) => {
           ))}
         </div>
       </div>
-      <div className={s.workCardImage}></div>
+      <div className={s.workImageContainer}>
+        <motion.div
+          className={s.workCardImage}
+          whileHover={{ scale: 0.95 }}
+        ></motion.div>
+      </div>
       <div className={s.workCardTitle}>
         <p className="h1-style">{title}</p>
       </div>
