@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 import s from "/styles/components/WorkCard.module.css";
 
@@ -7,20 +8,36 @@ const WorkCard = ({ year, title, scope, link, image }) => {
   const MotionLink = motion(Link);
 
   const variants = {
-    initial: {
+    cardInitial: {
       opacity: 1,
     },
-    hover: {
+    cardHover: {
       opacity: 1,
+    },
+    imageHover: {
+      scale: 0.98,
     },
   };
+
+  const imageVariants = {
+    imageInitial: {
+      scale: 1,
+    },
+    imageHover: {
+      scale: 0.98,
+    },
+  };
+
+  const [imageHover, setImageHover] = useState(false);
+
   return (
     <MotionLink
       href={link}
       className={s.workCard}
       variants={variants}
-      initial="initial"
-      whileHover="hover"
+      initial="cardInitial"
+      onMouseEnter={() => setImageHover(true)}
+      onMouseLeave={() => setImageHover(false)}
     >
       <div className={s.workCardHeader}>
         <p className={s.workCardYear}>{year}</p>
@@ -35,7 +52,9 @@ const WorkCard = ({ year, title, scope, link, image }) => {
       <div className={s.workImageContainer}>
         <motion.div
           className={s.workCardImage}
-          whileHover={{ scale: 0.95 }}
+          variants={imageVariants}
+          initial="imageInitial"
+          animate={imageHover ? "imageHover" : "imageInitial"}
         ></motion.div>
       </div>
       <div className={s.workCardTitle}>

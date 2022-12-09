@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import Contact from "../common/UI/Contact";
 import RightHalf from "../common/UI/RightHalf";
+import Scope from "../common/components/Scope";
 import WorkCard from "../common/components/WorkCard";
 import worksData from "../data/worksData";
 import LeftHalf from "/common/UI/LeftHalf";
@@ -10,6 +12,16 @@ import s from "/styles/Home.module.css";
 
 const index = () => {
   const MotionLogo = motion(Image);
+
+  const scopeList = [
+    { symbol: "B", name: "Branding" },
+    { symbol: "S", name: "Identity Systems" },
+    { symbol: "D", name: "Direction" },
+    { symbol: "I", name: "Interface Design" },
+    { symbol: "X", name: "User Experience" },
+    { symbol: "E", name: "Editorial" },
+    { symbol: "3", name: "3D Design" },
+  ];
 
   return (
     <>
@@ -25,17 +37,27 @@ const index = () => {
           </h1>
         </section>
         <section className={s.aboutSection}>
-          <h2 className={s.aboutHeading}>ABOUT</h2>
+          <h2 className="sectionHeading">ABOUT</h2>
           <p className="paragraph">
-            a very good job is an experiential house, focused on amplifying
-            entertainment entities across film, television, music, and fashion.
-            We help brands and studios tell their stories through events,
-            detail-driven content, influencer outreach, and digital marketing
-            rollouts. What makes us different is our ability to hone in on the
-            truth of your brand, based on the insights of your audience, without
-            all the fluff.
+            As a multidisciplinary designer, I am passionate about human and
+            design interaction not limited to one medium or another i love
+            working at the intersection of creativity and seamless integration
+            through both digital and print products
           </p>
         </section>
+        <section className={s.infoSection}>
+          <div className={s.infoLeft}>
+            <h2 className="sectionHeading">CAPABILITIES</h2>
+            <ul className={s.scopeList}>
+              {scopeList.map((scope, index) => (
+                <li className={s.scopeItem} key={index}>
+                  <Scope>{scope.symbol}</Scope> <p>- {scope.name}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        <Contact />
       </LeftHalf>
       <RightHalf>
         {worksData.map((work, index) => (

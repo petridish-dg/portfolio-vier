@@ -47,8 +47,33 @@
   border-bottom: 1px solid var(--color-text);
 }
 
-.aboutHeading {
-  margin-bottom: 3rem;
+.sectionHeading {
+  margin-bottom: 2rem;
+}
+
+/* Info Section */
+
+.infoSection {
+  border-bottom: 1px solid var(--color-text);
+}
+
+.infoLeft {
+  padding: var(--padding-global);
+}
+
+.scopeList {
+  /* display: flex;
+  flex-direction: column;
+  gap: 5px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.scopeItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* RIGHT SIDE */
